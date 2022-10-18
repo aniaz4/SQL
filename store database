@@ -1,0 +1,23 @@
+CREATE TABLE clothing_store (id integer primary key, item text, price integer, size text, color text);
+
+INSERT INTO clothing_store VALUES (1, "tshirt", 30, "L", "black");
+INSERT INTO clothing_store VALUES (2, "mini skirt", 50, "L", "grey");
+INSERT INTO clothing_store VALUES (3, "maxi skirt", 60, "M", "white");
+INSERT INTO clothing_store VALUES (4, "straightcut jeans", 80, "M", "blue");
+INSERT INTO clothing_store VALUES (5, "underwear", 55, "M", "pink");
+INSERT INTO clothing_store VALUES (6, "bathrobe", 60, "M", "red");
+INSERT INTO clothing_store VALUES (7, "boyfriend's jeans", 90, "M", "orange");
+INSERT INTO clothing_store VALUES (8, "crop top", 25, "M", "yellow");
+INSERT INTO clothing_store VALUES (9, "pyjama", 30, "L", "blue");
+INSERT INTO clothing_store VALUES (10, "summer jacket", 100, "L", "green");
+INSERT INTO clothing_store VALUES (11, "socks", 15, "L", "black");
+INSERT INTO clothing_store VALUES (12, "jeans short", 65,"L", "blue");
+INSERT INTO clothing_store VALUES (13, "hoodie", 28, "XL", "grey");
+INSERT INTO clothing_store VALUES (14, "sweatshirt", 45, "XL", "green");
+INSERT INTO clothing_store VALUES (15, "beanie", 12, "L", "grey");
+
+SELECT * FROM clothing_store GROUP BY price;
+
+SELECT * FROM clothing_store where price >=60;
+
+SELECT sum(price) FROM clothing_store; 
