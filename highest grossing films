@@ -1,0 +1,41 @@
+/* Put your data in here and query it! */
+
+create table highest_grossing_films (rank INTEGER, title TEXT, year INTEGER, gross INTEGER, ticket_sold INTEGER);
+
+INSERT into highest_grossing_films VALUES (1, "Avatar", 2009, 65679238, 7493785);
+INSERT into highest_grossing_films VALUES (2, "Quo Vado", 2016, 65341588, 9354698);
+INSERT into highest_grossing_films VALUES (3, "Sole a catinelle", 2013, 51948550, 8005352); 
+INSERT into highest_grossing_films VALUES (4, "Titanic", 1997, 50217865, 13708208);
+INSERT into highest_grossing_films VALUES (5, "Tolo Tolo", 2020, 46201300, 6674622);
+INSERT into highest_grossing_films VALUES (6, "What a Beautiful Day", 2011, 43475840, 6831460);
+INSERT into highest_grossing_films VALUES (7, "The Lion King", 2019, 37514061, 5694038);
+INSERT into highest_grossing_films VALUES (8, "Life Is Beautiful", 1997, 31231984, 9702524);
+INSERT into highest_grossing_films VALUES (9, "Alice in Wonderland", 2010, 30397548, 3511206);
+INSERT into highest_grossing_films VALUES (10, "Avengers: Endgame", 2019, 30282559, 409842);
+INSERT into highest_grossing_films VALUES (11, "Benvenuti al Sud", 2010, 29841490, 4903480); 
+INSERT into highest_grossing_films VALUES (12, "Ice Age: Dawn of the Dinosaurs", 2009, 29705584, 4055708);
+INSERT into highest_grossing_films VALUES (13, "Joker", 2019, 29566127, 4228544);
+INSERT into highest_grossing_films VALUES (14,"Bohemian Rhapsody", 2018, 28966009, 4136537);
+INSERT into highest_grossing_films VALUES (15, "The Da Vinci Code", 2006, 28690407, 4656409);
+INSERT into highest_grossing_films VALUES (16, "Finding Nemo", 2003, 864625978, 56400000);
+INSERT into highest_grossing_films VALUES (17, "Star Wars: Episode III – Revenge of the Sith", 2005, 848754768, 59324600);
+INSERT into highest_grossing_films VALUES (18, "Transformers: Revenge of the Fallen", 2009, 834969807, 200000000);
+INSERT into highest_grossing_films VALUES (19, "Spider-Man", 2002, 821708551, 38000000);
+INSERT into highest_grossing_films VALUES (20, "Shrek the Third", 2007, 798958162, 46907000);
+
+SELECT min(gross) FROM highest_grossing_films;
+SELECT avg(gross) FROM highest_grossing_films;
+SELECT max(gross) From highest_grossing_films;
+SELECT sum(gross) as sum_gross FROM highest_grossing_films group by gross having sum_gross> 20000000;
+
+SELECT title FROM highest_grossing_films where year>1996 and ticket_sold>13000000;
+
+SELECT title from highest_grossing_films where gross >30000000 or year >2015;
+
+select count (*),
+ case
+when ticket_Sold <4000000 then "box office bomb"
+when ticket_sold >12000000 then "box office hit"
+when ticket_sold >8000000 then "successful" 
+else "average"
+end as "success_rate" from highest_grossing_films group by success_rate
